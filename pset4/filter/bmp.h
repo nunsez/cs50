@@ -24,8 +24,7 @@ typedef uint16_t WORD;
  *
  * Adapted from http://msdn.microsoft.com/en-us/library/dd183374(VS.85).aspx.
  */
-typedef struct
-{
+typedef struct {
     WORD   bfType;
     DWORD  bfSize;
     WORD   bfReserved1;
@@ -42,8 +41,7 @@ BITMAPFILEHEADER;
  *
  * Adapted from http://msdn.microsoft.com/en-us/library/dd183376(VS.85).aspx.
  */
-typedef struct
-{
+typedef struct {
     DWORD  biSize;
     LONG   biWidth;
     LONG   biHeight;
@@ -66,8 +64,7 @@ BITMAPINFOHEADER;
  *
  * Adapted from http://msdn.microsoft.com/en-us/library/aa922590.aspx.
  */
-typedef struct
-{
+typedef struct {
     BYTE  rgbtBlue;
     BYTE  rgbtGreen;
     BYTE  rgbtRed;
