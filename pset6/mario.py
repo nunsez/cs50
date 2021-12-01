@@ -1,3 +1,6 @@
+import cs50
+
+
 def main():
     height = get_height()
 
@@ -7,14 +10,10 @@ def main():
 
 def get_height():
     while True:
-        try:
-            height = int(input('Height: '))
-        except ValueError:
-            pass
-        else:
-            if height > 0 and height < 9:
-                return height
+        height = cs50.get_int('Height: ')
 
+        if height > 0 and height < 9:
+            return height
 
 
 def draw(floor, height):

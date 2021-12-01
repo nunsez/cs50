@@ -1,3 +1,6 @@
+import cs50
+
+
 # we got quarters (25¢), dimes (10¢), nickels (5¢), and pennies (1¢).
 
 def main():
@@ -8,13 +11,10 @@ def main():
 
 def get_owed():
     while True:
-        try:
-            dollars = float(input('Change owed: '))
-        except ValueError:
-            pass
-        else:
-            if dollars > 0:
-                return dollars
+        dollars = cs50.get_float('Change owed: ')
+
+        if dollars > 0:
+            return dollars
 
 
 def calc_coins(owed):
