@@ -9,12 +9,12 @@ def get_height():
     while True:
         try:
             height = int(input('Height: '))
-
+        except ValueError:
+            pass
+        else:
             if height > 0 and height < 9:
                 return height
 
-        except ValueError:
-            None
 
 
 def draw(floor, height):
