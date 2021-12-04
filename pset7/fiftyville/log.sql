@@ -105,7 +105,7 @@ WHERE flight_id IN (
         hour,
         minute
     LIMIT 1 -- the earliest flight out
-    );
+);
 -- Thief is Ernest
 
 
@@ -123,11 +123,11 @@ WHERE id IN (
         year = 2020
         AND month = 7
         AND day = 29
-        ORDER BY -- the earliest flight out
-            hour,
-            minute
-        LIMIT 1 -- the earliest flight out
-    );
+    ORDER BY -- the earliest flight out
+        hour,
+        minute
+    LIMIT 1 -- the earliest flight out
+);
 
 -- Thief destination is London
 
