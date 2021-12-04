@@ -1,5 +1,7 @@
-SELECT songs.name
+SELECT name
 FROM songs
-JOIN artists
-    ON songs.artist_id = artists.id
-WHERE artists.name = 'Post Malone';
+WHERE artist_id IN (
+    SELECT id
+    FROM artists
+    WHERE name = 'Post Malone'
+);
