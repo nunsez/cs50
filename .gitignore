@@ -9,3 +9,6 @@
 
 # Unignore Makefile
 !Makefile
+
+# Ignore env file
+.env
