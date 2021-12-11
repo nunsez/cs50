@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% if symbols_list is not defined %}
+    {% set symbols_list = {} %}
+{% endif %}
+
+{% if errors is not defined %}
+    {% set errors = {} %}
+{% endif %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+    <form action="/sell" method="POST">
+        <div class="mb-3">
+            <select name="symbol" class="form-select mx-auto">
+                <option value="" selected disabled>Сhoose a symbol</option>
+                {% for symbol in symbols_list %}
+                    <option value="{{ symbol }}">{{ symbol }}</option>
+                {% endfor %}
+            </select>
+            {% if errors.symbol %}
+                <div class="text-danger">{{ errors.symbol }}</div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" class="form-control" name="shares" placeholder="Shares" type="number"  min="1">
+            {% if errors.shares %}
+                <div class="text-danger">{{ errors.shares }}</div>
+            {% endif %}
+        </div>
+        {% if errors.message %}
+            <div class="text-danger">{{ errors.message }}</div>
+        {% endif %}
+        <button class="btn btn-primary" type="submit">Sell</button>
+    </form>
+{% endblock %}

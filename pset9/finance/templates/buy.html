@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% if data is not defined %}
+    {% set data = {} %}
+{% endif %}
+
+{% if errors is not defined %}
+    {% set errors = {} %}
+{% endif %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+    <form action="/buy" method="POST">
+        <div class="mb-3">
+            <input autocomplete="off" class="form-control" name="symbol" placeholder="Symbol" type="text" {{ 'autofocus' if not data.symbol else '' }} value="{{ data.symbol }}">
+            {% if errors.symbol %}
+                <div class="text-danger">{{ errors.symbol }}</div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" class="form-control" name="shares" placeholder="Shares" type="number"  min="1" {{ 'autofocus' if data.symbol else '' }} value="{{ data.shares }}">
+            {% if errors.shares %}
+                <div class="text-danger">{{ errors.shares }}</div>
+            {% endif %}
+        </div>
+        {% if errors.message %}
+            <div class="text-danger">{{ errors.message }}</div>
+        {% endif %}
+        <button class="btn btn-primary" type="submit">Buy</button>
+    </form>
+{% endblock %}

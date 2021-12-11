@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% if user is not defined %}
+    {% set user = {} %}
+{% endif %}
+
+{% if errors is not defined %}
+    {% set errors = {} %}
+{% endif %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="POST">
+        {% if errors.register %}
+            <div class="text-danger">{{ errors.register }}</div>
+        {% endif %}
+        <div class="mb-3">
+            <input autocomplete="off" {{ 'autofocus' if not user.username else '' }} class="form-control" name="username" placeholder="Username" type="text" value="{{ user.username | default }}">
+            {% if errors.username %}
+                <div class="text-danger">{{ errors.username }}</div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <input class="form-control" name="password" placeholder="Password" type="password" {{ 'autofocus' if user.username else '' }}>
+            {% if errors.password %}
+                <div class="text-danger">{{ errors.password }}</div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <input class="form-control" name="confirmation" placeholder="Confirmation" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+{% endblock %}
